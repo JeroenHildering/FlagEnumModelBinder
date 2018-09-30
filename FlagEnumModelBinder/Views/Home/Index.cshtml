@@ -1,0 +1,20 @@
+﻿@using FlagEnumModelBinder.Code
+@model global::FlagEnumModelBinder.Models.FlagViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Flag Enum Model Binder Example</title>
+</head>
+    <body>
+        Saved values: @ViewBag.SavedValues
+        @using ( Html.BeginForm( "Save", "Home", FormMethod.Post, new { id = "saveModel", name = "saveModel" } ) )
+        {
+            @Html.CheckBoxListForEnum( m => m.FlagProperty, Model.FlagProperty.ToSelectList())
+            <br/>
+            <input type="submit" value="Save"/>
+        }
+    </body>
+</html>
